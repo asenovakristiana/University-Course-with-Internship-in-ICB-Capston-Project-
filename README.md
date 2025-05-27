@@ -32,7 +32,7 @@ Companies may rely on closed-source third-party libraries, which can further obs
 Companies may patent certain algorithms or techniques used in their software, providing legal protection against unauthorized use or reproduction.
 Conclusion
 
-By combining these techniques, private software companies can effectively protect their source code and maintain the competitive advantage that comes with closed-source software. The goal is to safeguard intellectual property while providing users with software that meets their needs without exposing the underlying code." ##
+By combining these techniques, private software companies can effectively protect their source code and maintain the competitive advantage that comes with closed-source software. The ## goal is to safeguard intellectual property while providing users with software that meets their needs without exposing the underlying code."
 
 https://www.quora.com/How-do-private-software-companies-hide-their-source-code-How-do-they-make-closed-source-software
 
