@@ -212,6 +212,10 @@ o	Digital meter for electricity consumption.
  
 •	Performance Testing: Running the application with 1000 sensors caused performance issues, indicating potential optimization needs.
 
+"I tried drawing a large amount of lines on a panel in winforms and the same dt on a canvas in using WPF and found the winforms creted the drwing in less than second, wheres WPF took many seconds, even though I ws using Pathgeometry in WPF rather than shpes"
+
+https://stackoverflow.com/questions/19642320/is-there-a-performance-difference-between-wpf-and-winforms
+
 “I don’t get it.  Why is this bad for performance?
 The first thing you may have noticed is that it took three draw calls to render one ellipse.  Over those three draw calls, the same vertex buffer was used twice.  To explain the inefficiency, I need to explain a little on how GPUs work.  First, today’s GPUs process data VERY fast and run asynchronously with the CPU.  Also, there is costly user-mode to kernel mode transitions that happen with certain operations.  In the case that that a vertex buffer is filled, it must be locked.  If the buffer currently is used by the GPU, this causes the GPU to sync with the CPU, which can cause a performance hit.  The vertex buffer is created with a D3DUSAGE_WRITEONLY | D3DUSAGE_DYNAMIC, but when it is locked (which happens quite a bit), the D3DLOCK_DISCARD is not used.  This could cause a stall (a sync of the CPU and GPU) of the GPU if the buffer is in use by the GPU.  In the case of lots of draw calls, we have possibly a lot of kernel transitions and driver load.  The goal for good performance is to send as much work as possible to the GPU, or else your CPU will be busy and your GPU will be idle.  Also, do not forget that in this example, I’m only talking about 1 frame.  Typical WPF UI tries to execute at 60 frames every second!  If you’ve ever wondered what that high CPU usage on your render thread was from, you’ll find a lot (most?) is coming from your GPU driver”
 https://jeremiahmorrill.wordpress.com/2011/02/14/a-critical-deep-dive-into-the-wpf-rendering-system/
