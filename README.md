@@ -3,6 +3,14 @@
 
 ## - I have two course projects, both of which contain technical errors that, if removed, would stop them from being functional. Neither of them is easy to migrate, and that’s part of their charm. They were written manually—one even in Notepad—and were the most fun projects to work on. Artificial intelligence and migrating to .NET 8 would certainly be a drawn-out task for this particular project, which is the only one whose creativity I would share. Good old-fashioned programming, without being overwhelmed by libraries and strict principles, has its own charm.
 
+" I'm sure you can protect PDFs so they can't be edited. You could also just refuse to do the "homework" and link to a portfolio of work instead.
+
+If you want to be petty, you can also call them out on their social media posts that they stole from you. Or you can rate then negatively on Google/Glassdoor, etc. as others suggested.
+
+If you do review them on those sites, I wouldn't say directly that they stole your ideas, but use phrasing like "the posts they made after my interview appeared to closely resemble a draft I submitted as part of an assignment"."
+
+https://www.reddit.com/r/recruitinghell/comments/16qi5df/companies_stealing_work/
+
 ## "Private software companies use several methods to hide their source code and create closed-source software. Here are some key strategies:
 
 1. Obfuscation
