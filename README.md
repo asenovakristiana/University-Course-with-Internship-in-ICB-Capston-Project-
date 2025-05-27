@@ -3,6 +3,39 @@
 
 ## - I have two course projects, both of which contain technical errors that, if removed, would stop them from being functional. Neither of them is easy to migrate, and that’s part of their charm. They were written manually—one even in Notepad—and were the most fun projects to work on. Artificial intelligence and migrating to .NET 8 would certainly be a drawn-out task for this particular project, which is the only one whose creativity I would share. Good old-fashioned programming, without being overwhelmed by libraries and strict principles, has its own charm.
 
+## "Private software companies use several methods to hide their source code and create closed-source software. Here are some key strategies:
+
+1. Obfuscation
+
+Code Obfuscation: This is a technique where the source code is transformed into a version that is difficult to understand. While the functionality remains the same, the code is made less readable to prevent reverse engineering.
+Minification: This process reduces the size of the code (removing whitespace, comments, etc.) while maintaining functionality, making it harder to interpret.
+2. Compiling to Binary
+
+Software is written in high-level programming languages and then compiled into binary code. This binary format is not easily readable or modifiable by humans, making it more difficult to reverse engineer the original source code.
+3. Licensing Agreements
+
+Companies often use legal measures, such as End User License Agreements (EULAs), that restrict how users can interact with the software, including prohibiting reverse engineering or redistribution of the software.
+4. Access Control
+
+Companies can restrict access to the source code by keeping it on secure servers and limiting who can view or modify it. This includes using version control systems with strict access permissions.
+5. Cloud-Based Solutions
+
+Many companies offer software as a service (SaaS), where the software runs on the company’s servers, and users access it via the internet. This model keeps the source code on the provider's servers, away from users.
+6. Proprietary Formats
+
+Some software may use proprietary file formats that are not publicly documented, making it difficult for others to develop compatible software or to understand the inner workings of the software.
+7. Use of Third-Party Libraries
+
+Companies may rely on closed-source third-party libraries, which can further obscure the code. While the main application might be closed-source, the use of these libraries can complicate reverse engineering efforts.
+8. Intellectual Property Protections
+
+Companies may patent certain algorithms or techniques used in their software, providing legal protection against unauthorized use or reproduction.
+Conclusion
+
+By combining these techniques, private software companies can effectively protect their source code and maintain the competitive advantage that comes with closed-source software. The goal is to safeguard intellectual property while providing users with software that meets their needs without exposing the underlying code." ##
+
+https://www.quora.com/How-do-private-software-companies-hide-their-source-code-How-do-they-make-closed-source-software
+
 Sofia University "St. Kliment Ohridski" Faculty of Mathematics and Informatics Course Project Title: Information System for Monitoring and Analysis of Living Conditions in Student Dormitories
 Student: Kristiana Asenova Asenova, 
 Academic Year: 2020/2021 
