@@ -1,7 +1,7 @@
 # University-Course-with-Internship-in-ICB-Capston-Project
 
 
-## - I have two course projects, both of which contain technical errors that, if removed, would stop them from being functional. Neither of them is easy to migrate, and that’s part of ## - their charm. They were written manually—one even in Notepad—and were the most fun projects to work on. Artificial intelligence and migrating to .NET 8 would certainly be a drawn-## - out task for this particular project, which is the only one whose creativity I would share. Good old-fashioned programming, without being overwhelmed by libraries and strict -##principles, has its own charm.
+## - I have two course projects, both of which contain technical errors that, if removed, would stop them from being functional. Neither of them is easy to migrate, and that’s part of their charm. They were written manually—one even in Notepad—and were the most fun projects to work on. Artificial intelligence and migrating to .NET 8 would certainly be a drawn-out task for this particular project, which is the only one whose creativity I would share. Good old-fashioned programming, without being overwhelmed by libraries and strict principles, has its own charm.
 
 Sofia University "St. Kliment Ohridski" Faculty of Mathematics and Informatics Course Project Title: Information System for Monitoring and Analysis of Living Conditions in Student Dormitories
 Student: Kristiana Asenova Asenova, 
