@@ -1,0 +1,217 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+        xmlns:course_project="clr-namespace:Course_Project"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:myCode="clr-namespace:Course_Project"
+        xmlns:wpf="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"   x:Class="Course_Project.MainWindow"
+        mc:Ignorable="d"
+        Title="Sensors" Width="1103.1" Height="556.2" 
+       >
+    <Window.Resources>
+
+        <ControlTemplate x:Key="eTemplate" x:Name="ETemp">
+
+            <DockPanel Name="dockP" LastChildFill="True">
+
+
+
+                <Border BorderBrush="Red" BorderThickness="2">
+
+                    <AdornedElementPlaceholder x:Name="adorned"/>
+
+                </Border>
+
+            </DockPanel>
+
+        </ControlTemplate>
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border CornerRadius="10" BorderBrush="Black" BorderThickness="3">
+                                <StackPanel Background="Khaki"></StackPanel>
+                            </Border>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid Background="LightSeaGreen" x:Name="aGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="95*"/>
+            <ColumnDefinition Width="352*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel x:Name="stcPanel" Grid.ColumnSpan="2" Margin="0,0,-0.4,-0.2">
+
+            <TabControl x:Name="tControl" SelectionChanged="tControl_SelectionChanged" Background="LightSeaGreen" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="515" Margin="0,0,-70.4,0">
+
+                <TabItem x:Name="homeTab" Background="Khaki" Header="Home" FontWeight="Black">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="338*"/>
+                            <ColumnDefinition Width="34*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="687*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore tempor incididunt ut laboresed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id diam maecenas ultricies mi eget. Molestie ac feugiat sed lectus vestibulum mattis. Aliquet nibh praesent tristique magna si" VerticalAlignment="Top" Width="160"  Background="LightSeaGreen"  Height="366" Margin="10,64,0,-0.4"/>
+
+                        <m:Map x:Name="MapXaml" CredentialsProvider="Qso9dFa30PsCSDpqXpQA~ATeBidd7EAanriHqcnGqTQ~Amd17LY4slNcH3WHwhqPvIqhJOHL5BT9OaXF1MH8xic5_HlBoMoUmJZUF_S3L5gC"
+               ZoomLevel="6" Center="42.6977,23.3219" Mode="Road" Margin="202,64,125.4,0" Height="375" VerticalAlignment="Top" Grid.ColumnSpan="4"/>
+
+
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="Map" Background="Khaki"  FontWeight="Black" x:Name="viewAllSensors" Height="22" Margin="-2,-2,-2.4,0" VerticalAlignment="Top">
+                    <Grid x:Name="MapTab" Height="495" Margin="0,0,-0.2,0">
+                        <m:Map x:Name="mp" CredentialsProvider="Qso9dFa30PsCSDpqXpQA~ATeBidd7EAanriHqcnGqTQ~Amd17LY4slNcH3WHwhqPvIqhJOHL5BT9OaXF1MH8xic5_HlBoMoUmJZUF_S3L5gC"
+               ZoomLevel="6" Center="42.6977,23.3219" Margin="0,10,0.6,0" />
+                        <Button  Content="Refresh map" Background="Khaki" Click="RefrMap_Click" HorizontalAlignment="Left" Margin="492,10,0,0" VerticalAlignment="Top" Width="90" Height="35"/>
+
+                    </Grid>
+                </TabItem>
+
+
+                <TabItem x:Name="SensList" Background="Khaki" Header="SensorList" FontWeight="Black"  >
+                    <Grid x:Name="AllsGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="67*"/>
+                            <ColumnDefinition Width="1096*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,0.4,0.4">
+                            <Menu HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <MenuItem x:Name="Save" Header="Save" Background="Khaki" Click="Save_Click"/>
+                                <MenuItem x:Name="Delete" Header="Delete" Background="Khaki" Click="Delete_Click"/>
+
+                            </Menu>
+                        </StackPanel>
+
+                        <StackPanel  Margin="30,30,30.4,30.4" Grid.ColumnSpan="2">
+
+                            <Button  Click="Add_Click"  HorizontalContentAlignment="Center"  VerticalContentAlignment="Stretch" HorizontalAlignment="Left" Background="Khaki" Width="106" Margin="10,0,0,0" RenderTransformOrigin="0.181,0.411" Content="Add new Sensor"/>
+
+                        </StackPanel>
+
+                        <Grid Grid.ColumnSpan="2" Margin="0,0,0.4,0.4">
+
+
+                            <DataGrid x:Name="AllSensors" HorizontalAlignment="Center" ItemsSource="{Binding}"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible"  ScrollViewer.HorizontalScrollBarVisibility="Visible" CanUserDeleteRows="True"  AlternatingRowBackground="LightSeaGreen"  CellEditEnding="AllSensors_CellEditEnding" RowBackground="LightSeaGreen" Background="LightSeaGreen"  AutoGenerateColumns="False" >
+                                <DataGrid.Resources>
+                                    <Style x:Key="errorStyle" TargetType="{x:Type TextBox}">
+                                        <Setter Property="Padding" Value="-2"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="Validation.HasError" Value="True">
+                                                <Setter Property="Background" Value="DarkSeaGreen"/>
+                                                <Setter Property="ToolTip"   Value="{Binding RelativeSource={RelativeSource Self},Path=(Validation.Errors)[0].ErrorContent}"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.Resources>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Sensor ID"  x:Name="gSensorID" Binding="{Binding BindsDirectlyToSource=True, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True,  Path=SensorID}" Validation.ErrorTemplate="{StaticResource ResourceKey=eTemplate}"     EditingElementStyle="{StaticResource errorStyle}"  />
+                                    <DataGridTextColumn Header="Coordinates"  x:Name="gCoordinates" Binding="{Binding BindsDirectlyToSource=True, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Path=Coordinates}" Validation.ErrorTemplate="{StaticResource ResourceKey=eTemplate}"     EditingElementStyle="{StaticResource errorStyle}" />
+                                    <DataGridTextColumn Header="Description" x:Name="gDescription" Binding="{Binding BindsDirectlyToSource=True, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Path=Description}" Validation.ErrorTemplate="{StaticResource ResourceKey=eTemplate}"  EditingElementStyle="{StaticResource errorStyle}"  />
+                                    <DataGridTextColumn Header="Sensor type" x:Name="gSEnsorType" Binding="{Binding BindsDirectlyToSource=True, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Path=SensorType}" Validation.ErrorTemplate="{StaticResource ResourceKey=eTemplate}"  EditingElementStyle="{StaticResource errorStyle}"  />
+                                    <DataGridTextColumn Header="Range" x:Name="gRange" Binding="{Binding BindsDirectlyToSource=True, Mode=TwoWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True,  Path=Range}" Validation.ErrorTemplate="{StaticResource ResourceKey=eTemplate}"  EditingElementStyle="{StaticResource errorStyle}"  />
+
+                                    <DataGridTemplateColumn Header="Link">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button>
+                                                    <Button x:Name="btnLink" Content="Link" Click="BtnLink_Click" Background="Khaki"/>
+                                                </Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+
+
+
+                            </DataGrid>
+                        </Grid>
+
+                    </Grid>
+
+                </TabItem>
+
+
+                <TabItem  Header="Graphical representation of the sensors " Background="Khaki" FontWeight="Black" x:Name="graphRepresentation">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="102*"/>
+                            <ColumnDefinition Width="1061*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Border Name="bdrLabel" Margin="10,-98,-9.6,98.2" Grid.ColumnSpan="2">
+                            <StackPanel Name="stcLbl">
+                                <Label x:Name="lblGraphRepresentation" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                           </StackPanel>
+                          </Border>
+                        <StackPanel x:Name="stcGraphRepresentation" Grid.ColumnSpan="2" Margin="0,0,0.4,0.2">
+                            <Border x:Name="bdrLight" CornerRadius="10">
+                                <StackPanel x:Name="stcLight"  >
+                                    <StackPanel.Background>
+                                        <SolidColorBrush Opacity="0.5"/>
+                                    </StackPanel.Background>
+                                    <Ellipse x:Name="RedLight" Margin="15"  Fill="LightSeaGreen"  Height="60" Width="60" Opacity="2"/>
+                                    <Ellipse x:Name="GreenLight" Margin="15" Fill="LightSeaGreen"  Height="60" Width="60" Opacity="2" />
+                                    <Label x:Name="lbl2GraphRepresentation" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+
+                            <StackPanel Name="stcHumidity" Visibility="Hidden" >
+                                <telerik:RadRadialGauge x:Name="radialGauge" 
+                        Width="300" 
+                        Height="300">
+                                    <telerik:RadialScale Name="rsHumidity" Min="1" 
+                         Max="100" Visibility="Hidden">
+
+                                        <telerik:RadialScale.Indicators>
+
+                                            <telerik:Marker Name="marker" 
+                                telerik:ScaleObject.RelativeHeight="0.1*" 
+                                telerik:ScaleObject.Location="OverCenter" 
+                                Value="{Binding ElementName=lblGraphRepresentation, Path=Content, Mode=OneWay}" ></telerik:Marker>
+
+                                        </telerik:RadialScale.Indicators>
+                                    </telerik:RadialScale>
+                                </telerik:RadRadialGauge>
+                            </StackPanel>
+
+
+                        </StackPanel>
+                        <Label Content="Sensor ID:" Margin="10,10,10.4,10.2" Grid.ColumnSpan="2"></Label>
+                        <wpf:TextBox IsEnabled="True" Name="txtBFindId" Width="112" Height="25" Margin="35,35,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.ColumnSpan="2" ></wpf:TextBox>
+                        <Button Name="btnFind" Content="Find" Background="Khaki"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.691,4.708" Margin="52,81,0,0" Click="BtnFind_Click" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="ReportsTab" Header="Reports" Background="Khaki" FontWeight="Black" Height="24" Margin="-2.2,-2,-2.4,0" VerticalAlignment="Top" >
+                    <Grid>
+
+                        <DataGrid  x:Name="AllReports"  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"  IsSynchronizedWithCurrentItem="true" AlternatingRowBackground="LightSeaGreen" HorizontalAlignment="Center"  HorizontalContentAlignment="Stretch" RowBackground="LightSeaGreen" Background="LightSeaGreen"/>
+                        <Button  x:Name="LoadRSensors"   Content="Load sensors" Background="Khaki" Style="{StaticResource ButtonStyle}"  HorizontalAlignment="Left" Margin="42,50,0,0" VerticalAlignment="Top" Width="100" Height="45" Click="LoadRSensors_Click" />
+                    </Grid>
+                </TabItem>
+
+            </TabControl>
+        </StackPanel>
+
+    </Grid>
+
+
+</Window>
