@@ -1,5 +1,9 @@
 # University-Course-with-Internship-in-ICB-Capston-Project
 
+## ICB and Telerik are great dudes because the API and gauge are still working in 2025.
+
+![image](https://github.com/user-attachments/assets/28963cbb-19ef-4ba3-80de-5f290b9d725e)
+
 
 ## - I have two course projects, both of which contain technical errors that, if removed, would stop them from being functional. Neither of them is easy to migrate, and that’s part of their charm. They were written manually—one even in Notepad—and were the most fun projects to work on. Artificial intelligence and migrating to .NET 8 would certainly be a drawn-out task for this particular project, which is the only one whose creativity I would share. Good old-fashioned programming, without being overwhelmed by libraries and strict principles, has its own charm.
 
