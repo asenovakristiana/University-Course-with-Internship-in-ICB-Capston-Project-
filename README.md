@@ -224,6 +224,14 @@ https://stackoverflow.com/questions/19642320/is-there-a-performance-difference-b
 The first thing you may have noticed is that it took three draw calls to render one ellipse.  Over those three draw calls, the same vertex buffer was used twice.  To explain the inefficiency, I need to explain a little on how GPUs work.  First, today’s GPUs process data VERY fast and run asynchronously with the CPU.  Also, there is costly user-mode to kernel mode transitions that happen with certain operations.  In the case that that a vertex buffer is filled, it must be locked.  If the buffer currently is used by the GPU, this causes the GPU to sync with the CPU, which can cause a performance hit.  The vertex buffer is created with a D3DUSAGE_WRITEONLY | D3DUSAGE_DYNAMIC, but when it is locked (which happens quite a bit), the D3DLOCK_DISCARD is not used.  This could cause a stall (a sync of the CPU and GPU) of the GPU if the buffer is in use by the GPU.  In the case of lots of draw calls, we have possibly a lot of kernel transitions and driver load.  The goal for good performance is to send as much work as possible to the GPU, or else your CPU will be busy and your GPU will be idle.  Also, do not forget that in this example, I’m only talking about 1 frame.  Typical WPF UI tries to execute at 60 frames every second!  If you’ve ever wondered what that high CPU usage on your render thread was from, you’ll find a lot (most?) is coming from your GPU driver”
 https://jeremiahmorrill.wordpress.com/2011/02/14/a-critical-deep-dive-into-the-wpf-rendering-system/
 
+"...so, please don't think I am avoiding it—I'll leave it for Monday to catch up on the remaining work as best as I can. If I come up with improvements, I will upload them then. Actually, I'm still thinking about it, and I'm not sure how much progress I'll make. I've had significant issues before with pinning and getting caught in a deadlock. As a last resort, I will add another reload button for the cards, which will simply refresh the entire application to ensure updates are applied. At least, that's the fastest solution—it happens instantly.
+
+I'm attaching an image showing what happened when I implemented pinning for the sensors while modifying their values in the datagrid.
+
+Best regards, Kristiana"
+
+
+![image](https://github.com/user-attachments/assets/91b72bb6-50ca-4dbd-ad6c-efca9a1fcb2b)
 
 5. Conclusion
 The project was developed in accordance with the requirements. Future improvements include enhancing the graphical representation of sensors using Telerik and refining functionalities mentioned above.
